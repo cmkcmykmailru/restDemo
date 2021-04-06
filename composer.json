@@ -1,0 +1,63 @@
+{
+    "name": "grigor/yii2-rest-demo",
+    "description": "Demo project",
+    "keywords": ["yii2", "framework", "advanced", "project dmo"],
+    "homepage": "http://www.yiiframework.com/",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+        "forum": "http://www.yiiframework.com/forum/",
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/yiisoft/yii2"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.4.0",
+        "yiisoft/yii2": "~2.0.14",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
+        "grigor/yii2-rest": "^1.0.1",
+        "grigor/yii2-project-library": "^0.0.1",
+        "kartik-v/yii2-widget-fileinput": "@dev",
+        "kartik-v/yii2-editable": "dev-master",
+        "yiisoft/yii2-imagine": "^2.3",
+        "zakurdaev/yii2-editorjs-widget": "*",
+        "grigor/yii2-blog-management": "dev-master"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.1.0",
+        "yiisoft/yii2-gii": "~2.1.0",
+        "yiisoft/yii2-faker": "~2.0.0",
+        "codeception/codeception": "^4.0",
+        "codeception/module-asserts": "^1.0",
+        "codeception/module-yii2": "^1.0",
+        "codeception/module-filesystem": "^1.0",
+        "codeception/verify": "~0.5.0 || ~1.1.0",
+        "symfony/browser-kit": ">=2.7 <=4.2.4",
+        "grigor/yii2-generator": "^1.0.2",
+        "codeception/module-rest": "dev-master",
+        "codeception/module-phpbrowser": "dev-master"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "path",
+            "url": "contexts/yii2-blog-management"
+        }
+    ],
+    "scripts": {
+        "serv": "php -S 127.0.0.1:8080 -t api/web",
+        "api": "vendor/bin/codecept run -- -c api"
+    }
+}

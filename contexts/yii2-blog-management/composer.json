@@ -1,0 +1,40 @@
+{
+  "name": "grigor/yii2-blog-management",
+  "description": "blog management",
+  "type": "yii2-extension",
+  "minimum-stability": "stable",
+  "keywords": [
+    "yii2",
+    "extension"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "grigor",
+      "email": "cmk.cmyk@mail.ru"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "yiisoft/yii2": "~2.0.0",
+    "grigor/yii2-project-library": "^0.0.1",
+    "grigor/yii2-blog": "^0.0.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "8.5.x-dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "grigor\\blogManagement\\": "src"
+    }
+  },
+  "scripts": {
+    "tests": "php ./vendor/bin/phpunit --colors=always tests"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}

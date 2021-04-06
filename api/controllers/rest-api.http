@@ -1,0 +1,38 @@
+GET http://api.rest.local/v1/blog/posts
+Accept: application/json
+
+###
+
+GET http://api.rest.local/v1/blog/posts/count
+Accept: application/json
+
+###
+
+PUT http://api.rest.local/v1/blog/posts/draft/d4e2daf6-c9d1-49d7-9719-34f4bb321292
+Accept: application/json
+
+###
+PUT http://api.rest.local/v1/blog/posts/restore/d4e2daf6-c9d1-49d7-9719-34f4bb321292
+Accept: application/json
+
+###
+
+PUT http://api.rest.local/v1/blog/posts/trash/d4e2daf6-c9d1-49d7-9719-34f4bb321292
+Accept: application/json
+
+###
+PUT http://api.rest.local/v1/blog/posts/publish/d4e2daf6-c9d1-49d7-9719-34f4bb321292
+Accept: application/json
+
+###
+
+GET http://api.rest.local/v1/blog/categories
+Accept: application/json
+
+###
+GET http://api.rest.local/v1/blog/categories/31c59a4f-2e7d-4e06-8b4a-1d5d8e14f888
+Accept: application/json
+
+###
+
+

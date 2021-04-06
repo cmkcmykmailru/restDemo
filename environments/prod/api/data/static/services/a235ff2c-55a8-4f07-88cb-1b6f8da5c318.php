@@ -1,0 +1,1 @@
+<?php return ['service' => ['class' => 'grigor\blogManagement\BlogManagementContract','method' => 'getAllPostsByCategory',],'serializer' => 'api\serializers\SerializePost',];
