@@ -60,3 +60,46 @@ php yii migrate --migrationPath=@grigor/blog/migrations??
 
 **frontend/web**  
 
+Если вы пользователь laradock и хотите сопрячь два хоста, то вам следует перейти в корень laradock и изменить файл
+docker-compose.yml, а именно изменить настройки своего сервера добавив алиасы в разделе нетворкс.
+
+Измененные настройки на примере Nginx
+
+```yaml
+### NGINX Server #########################################
+    nginx:
+      build:
+        context: ./nginx
+        args:
+          - CHANGE_SOURCE=${CHANGE_SOURCE}
+          - PHP_UPSTREAM_CONTAINER=${NGINX_PHP_UPSTREAM_CONTAINER}
+          - PHP_UPSTREAM_PORT=${NGINX_PHP_UPSTREAM_PORT}
+          - http_proxy
+          - https_proxy
+          - no_proxy
+      volumes:
+        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+        - ${NGINX_HOST_LOG_PATH}:/var/log/nginx
+        - ${NGINX_SITES_PATH}:/etc/nginx/sites-available
+        - ${NGINX_SSL_PATH}:/etc/nginx/ssl
+      ports:
+        - "${NGINX_HOST_HTTP_PORT}:80"
+        - "${NGINX_HOST_HTTPS_PORT}:443"
+        - "${VARNISH_BACKEND_PORT}:81"
+      depends_on:
+        - php-fpm
+      networks:
+        frontend:
+         aliases:
+          - вашдомен.ru
+        backend:
+         aliases:
+          - вашдомен.ru
+```
+
+За-тем снова сбилдить контейнеры php-fpm и workspace выполнив команду:
+
+```sh 
+docker-compose build --no-cache php-fpm workspace
+```
+

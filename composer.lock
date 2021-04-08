@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46e476da2026f306c764ddede4b689f8",
+    "content-hash": "98f5e5e5e63e76037b9c6962c0bfbd7b",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
+                "url": "git@github.com:twbs/bootstrap.git",
                 "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "dist": {
@@ -461,16 +461,16 @@
         },
         {
             "name": "grigor/yii2-blog",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cmkcmykmailru/yii2-blog.git",
-                "reference": "008ea8c4e529bf6b6f86ca934ec6efc95c17beb1"
+                "reference": "f4cd0220684be1aca25ac955cef3029611343bae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cmkcmykmailru/yii2-blog/zipball/008ea8c4e529bf6b6f86ca934ec6efc95c17beb1",
-                "reference": "008ea8c4e529bf6b6f86ca934ec6efc95c17beb1",
+                "url": "https://api.github.com/repos/cmkcmykmailru/yii2-blog/zipball/f4cd0220684be1aca25ac955cef3029611343bae",
+                "reference": "f4cd0220684be1aca25ac955cef3029611343bae",
                 "shasum": ""
             },
             "require": {
@@ -508,9 +508,9 @@
             ],
             "support": {
                 "issues": "https://github.com/cmkcmykmailru/yii2-blog/issues",
-                "source": "https://github.com/cmkcmykmailru/yii2-blog/tree/0.0.2"
+                "source": "https://github.com/cmkcmykmailru/yii2-blog/tree/0.0.3"
             },
-            "time": "2021-04-06T19:15:48+00:00"
+            "time": "2021-04-08T20:34:35+00:00"
         },
         {
             "name": "grigor/yii2-blog-management",
@@ -518,10 +518,10 @@
             "dist": {
                 "type": "path",
                 "url": "contexts/yii2-blog-management",
-                "reference": "d7f9e3024f887c5160b50bfe51687e1eedc4541f"
+                "reference": "1a2d169ee310a70323e834b64495cf98303c8a4d"
             },
             "require": {
-                "grigor/yii2-blog": "^0.0.2",
+                "grigor/yii2-blog": "~0.0.3",
                 "grigor/yii2-project-library": "^0.0.1",
                 "php": ">=7.4",
                 "yiisoft/yii2": "~2.0.0"
@@ -906,12 +906,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-                "reference": "8aa48bb2e7613db45b3c34f7a9346d7f43b1f4ec"
+                "reference": "9b6bc8335e8e561e3953826efefd57b1df7bdce0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/8aa48bb2e7613db45b3c34f7a9346d7f43b1f4ec",
-                "reference": "8aa48bb2e7613db45b3c34f7a9346d7f43b1f4ec",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/9b6bc8335e8e561e3953826efefd57b1df7bdce0",
+                "reference": "9b6bc8335e8e561e3953826efefd57b1df7bdce0",
                 "shasum": ""
             },
             "suggest": {
@@ -953,9 +953,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kartik-v/yii2-krajee-base/issues",
-                "source": "https://github.com/kartik-v/yii2-krajee-base/tree/master"
+                "source": "https://github.com/kartik-v/yii2-krajee-base/tree/v2.0.6"
             },
-            "time": "2019-05-25T07:25:02+00:00"
+            "time": "2021-04-08T18:07:22+00:00"
         },
         {
             "name": "kartik-v/yii2-popover-x",
@@ -1829,12 +1829,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "313a38f09c77fbcdc1d223e57d368cea76a2fd2f"
+                "reference": "98cb8eeb72e55d4196dd1e36f1f16e7b3a9a088e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/313a38f09c77fbcdc1d223e57d368cea76a2fd2f",
-                "reference": "313a38f09c77fbcdc1d223e57d368cea76a2fd2f",
+                "url": "https://api.github.com/repos/symfony/process/zipball/98cb8eeb72e55d4196dd1e36f1f16e7b3a9a088e",
+                "reference": "98cb8eeb72e55d4196dd1e36f1f16e7b3a9a088e",
                 "shasum": ""
             },
             "require": {
@@ -1868,7 +1868,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v5.2.4"
+                "source": "https://github.com/symfony/process/tree/5.x"
             },
             "funding": [
                 {
@@ -1884,7 +1884,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T10:15:41+00:00"
+            "time": "2021-04-08T10:27:02+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -1892,12 +1892,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "094620a94e3ebf52955d314fa48f100f1b710294"
+                "reference": "c608cceb6d3f9af91896c47c28c86417d4859db6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/094620a94e3ebf52955d314fa48f100f1b710294",
-                "reference": "094620a94e3ebf52955d314fa48f100f1b710294",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/c608cceb6d3f9af91896c47c28c86417d4859db6",
+                "reference": "c608cceb6d3f9af91896c47c28c86417d4859db6",
                 "shasum": ""
             },
             "require": {
@@ -2006,7 +2006,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-06T09:33:16+00:00"
+            "time": "2021-04-07T18:55:25+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -3016,12 +3016,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/module-rest.git",
-                "reference": "4b1f59912437f01997ed0350da6697cb7377b17c"
+                "reference": "2cd9901c08a143dc80985696dcbe3cefc9f23ab9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/module-rest/zipball/4b1f59912437f01997ed0350da6697cb7377b17c",
-                "reference": "4b1f59912437f01997ed0350da6697cb7377b17c",
+                "url": "https://api.github.com/repos/Codeception/module-rest/zipball/2cd9901c08a143dc80985696dcbe3cefc9f23ab9",
+                "reference": "2cd9901c08a143dc80985696dcbe3cefc9f23ab9",
                 "shasum": ""
             },
             "require": {
@@ -3061,9 +3061,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Codeception/module-rest/issues",
-                "source": "https://github.com/Codeception/module-rest/tree/master"
+                "source": "https://github.com/Codeception/module-rest/tree/1.3.0"
             },
-            "time": "2021-04-05T09:29:18+00:00"
+            "time": "2021-04-08T08:23:09+00:00"
         },
         {
             "name": "codeception/module-yii2",
@@ -3428,12 +3428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "2e032fe3b37c2e85724ac7badcbef540a0bcc496"
+                "reference": "91a6806aebdb478d9b5b4bf6f0f7d16987ac445b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/2e032fe3b37c2e85724ac7badcbef540a0bcc496",
-                "reference": "2e032fe3b37c2e85724ac7badcbef540a0bcc496",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/91a6806aebdb478d9b5b4bf6f0f7d16987ac445b",
+                "reference": "91a6806aebdb478d9b5b4bf6f0f7d16987ac445b",
                 "shasum": ""
             },
             "require": {
@@ -3486,7 +3486,7 @@
                 "issues": "https://github.com/FakerPHP/Faker/issues",
                 "source": "https://github.com/FakerPHP/Faker/tree/main"
             },
-            "time": "2021-04-01T07:11:34+00:00"
+            "time": "2021-04-08T15:12:06+00:00"
         },
         {
             "name": "grigor/scanner",
@@ -6346,12 +6346,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "fb7e2447d39984358343685fb9f0e800cd79e6a3"
+                "reference": "72c693916f81df954f3721327de8e6b7433fc6e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/fb7e2447d39984358343685fb9f0e800cd79e6a3",
-                "reference": "fb7e2447d39984358343685fb9f0e800cd79e6a3",
+                "url": "https://api.github.com/repos/symfony/console/zipball/72c693916f81df954f3721327de8e6b7433fc6e3",
+                "reference": "72c693916f81df954f3721327de8e6b7433fc6e3",
                 "shasum": ""
             },
             "require": {
@@ -6437,7 +6437,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-28T09:44:11+00:00"
+            "time": "2021-04-08T10:31:48+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -6445,12 +6445,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "f65f217b3314504a1ec99c2d6ef69016bb13490f"
+                "reference": "59a684f5ac454f066ecbe6daecce6719aed283fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/f65f217b3314504a1ec99c2d6ef69016bb13490f",
-                "reference": "f65f217b3314504a1ec99c2d6ef69016bb13490f",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/59a684f5ac454f066ecbe6daecce6719aed283fb",
+                "reference": "59a684f5ac454f066ecbe6daecce6719aed283fb",
                 "shasum": ""
             },
             "require": {
@@ -6487,7 +6487,7 @@
             "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/css-selector/tree/v5.2.4"
+                "source": "https://github.com/symfony/css-selector/tree/5.x"
             },
             "funding": [
                 {
@@ -6503,7 +6503,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T10:01:46+00:00"
+            "time": "2021-04-07T16:07:52+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

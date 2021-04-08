@@ -25,7 +25,7 @@ use grigor\library\dto\Meta;
 use grigor\library\helpers\DefinitionHelper;
 use RuntimeException;
 use yii\data\DataProviderInterface;
-use yii\db\ActiveQuery;
+use yii\db\ActiveQueryInterface;
 
 class BlogManagementService extends AbstractContract implements BlogManagementContract
 {
@@ -42,18 +42,18 @@ class BlogManagementService extends AbstractContract implements BlogManagementCo
         return $this->container()->get(PostManageServiceInterface::class)->create($dto);
     }
 
-    public function createPostQuery(): ActiveQuery
+    public function createPostQuery(): ActiveQueryInterface
     {
         $this->container();
-        return \Yii::createObject(ActiveQuery::class,
-            [DefinitionHelper::getDefinition(PostInterface::class)]);
+        $postClass = DefinitionHelper::getDefinition(PostInterface::class);
+        return $postClass::find();
     }
 
-    public function createCategoryQuery(): ActiveQuery
+    public function createCategoryQuery(): ActiveQueryInterface
     {
         $this->container();
-        return \Yii::createObject(ActiveQuery::class,
-            [DefinitionHelper::getDefinition(CategoryInterface::class)]);
+        $categoryQuery = DefinitionHelper::getDefinition(CategoryInterface::class);
+        return $categoryQuery::find();
     }
 
     public function editPost(string $id, PostForm $form): void
@@ -137,10 +137,11 @@ class BlogManagementService extends AbstractContract implements BlogManagementCo
         return $definitions[$className]['class'];
     }
 
-    public function createTagQuery(): ActiveQuery
+    public function createTagQuery(): ActiveQueryInterface
     {
         $this->container();
-        return \Yii::createObject(ActiveQuery::class, [DefinitionHelper::getDefinition(TagInterface::class)]);
+        $categoryQuery = DefinitionHelper::getDefinition(TagInterface::class);
+        return $categoryQuery::find();
     }
 
     public function editTag(string $id, TagForm $form): void

@@ -9,8 +9,8 @@ use grigor\blogManagement\services\forms\CategoryForm;
 use grigor\blogManagement\services\forms\PostForm;
 use grigor\blogManagement\services\forms\TagForm;
 use yii\data\DataProviderInterface;
-use yii\db\ActiveQuery;
 use grigor\generator\annotation as API;
+use yii\db\ActiveQueryInterface;
 
 interface BlogManagementContract
 {
@@ -21,6 +21,7 @@ interface BlogManagementContract
      *     alias="post/create",
      * )
      * @API\Response(statusCode="201")
+     * @param PostForm $form
      * @return PostInterface
      */
     public function createPost(PostForm $form): PostInterface;
@@ -90,7 +91,7 @@ interface BlogManagementContract
      */
     public function draftPost(string $id): void;
 
-    public function createPostQuery(): ActiveQuery;
+    public function createPostQuery(): ActiveQueryInterface;
 
     public function createCategory(CategoryForm $form): CategoryInterface;
 
@@ -98,7 +99,7 @@ interface BlogManagementContract
 
     public function removeCategory(string $id): void;
 
-    public function createCategoryQuery(): ActiveQuery;
+    public function createCategoryQuery(): ActiveQueryInterface;
 
     public function getAvailableCategories(bool $root = false, string $rootName = 'No category', ?CategoryInterface $category = null): array;
 
@@ -106,7 +107,7 @@ interface BlogManagementContract
 
     public function removeTag(string $id): void;
 
-    public function createTagQuery(): ActiveQuery;
+    public function createTagQuery(): ActiveQueryInterface;
 
     public function getDefinitionOf(string $className): string;
 
