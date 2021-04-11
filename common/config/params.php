@@ -8,5 +8,4 @@ return [
     'user.passwordMinLength' => 8,
     'staticHostInfo' => 'http://static.example.com',
     'staticPath' => dirname(dirname(__DIR__)) . '/static',
-
 ];

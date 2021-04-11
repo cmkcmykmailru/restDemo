@@ -15,6 +15,7 @@ return [
         \grigor\rest\RestBootstrap::class,
         \grigor\library\Bootstrap::class,
         \grigor\blogManagement\etc\rest\Rest::class,
+        \grigor\userManagement\etc\rest\Rest::class,
         [
             'class' => 'yii\filters\ContentNegotiator',
             'formats' => [
@@ -27,6 +28,23 @@ return [
         'rest' => [
             'class' => \grigor\rest\Module::class,
         ],
+        'oauth2' => [
+            'class' => 'filsh\yii2\oauth2server\Module',
+            'tokenParamName' => 'accessToken',
+            'tokenAccessLifetime' => 3600 * 24,
+            'storageMap' => [
+                'user_credentials' => \common\identities\RestIdentity::class,
+            ],
+            'grantTypes' => [
+                'user_credentials' => [
+                    'class' => 'OAuth2\GrantType\UserCredentials',
+                ],
+                'refresh_token' => [
+                    'class' => 'OAuth2\GrantType\RefreshToken',
+                    'always_issue_new_refresh_token' => true
+                ]
+            ]
+        ]
     ],
     'controllerNamespace' => 'api\controllers',
     'components' => [
@@ -46,7 +64,7 @@ return [
             ],
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => \common\identities\RestIdentity::class,
             'enableAutoLogin' => false,
             'enableSession' => false,
         ],
@@ -75,8 +93,30 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/index',
+                'POST oauth2/<action:\w+>' => 'oauth2/rest/<action>',
             ],
         ],
+    ],
+    'as authenticator' => [
+        'class' => 'filsh\yii2\oauth2server\filters\auth\CompositeAuth',
+        'except' => ['site/index', 'oauth2/rest/token'],
+        'authMethods' => [
+            ['class' => 'yii\filters\auth\HttpBearerAuth'],
+            ['class' => 'yii\filters\auth\QueryParamAuth', 'tokenParam' => 'accessToken'],
+        ]
+    ],
+    'as access' => [
+        'class' => 'yii\filters\AccessControl',
+        'except' => ['site/index', 'oauth2/rest/token'],
+        'rules' => [
+            [
+                'allow' => true,
+                'roles' => ['@'],
+            ],
+        ],
+    ],
+    'as exceptionFilter' => [
+        'class' => 'filsh\yii2\oauth2server\filters\ErrorToExceptionFilter',
     ],
     'params' => $params,
 ];

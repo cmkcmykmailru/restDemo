@@ -13,7 +13,8 @@ return [
     'bootstrap' => [
         'log',
         \grigor\generator\GeneratorBootstrap::class,
-        \grigor\blogManagement\etc\console\Console::class
+        \grigor\blogManagement\etc\console\Console::class,
+        \grigor\userManagement\etc\console\Console::class,
     ],
     'modules' => [
         'generator' => [

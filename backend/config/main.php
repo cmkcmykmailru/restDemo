@@ -17,7 +17,8 @@ return [
     'bootstrap' => [
         'log',
         \grigor\library\Bootstrap::class,
-        \grigor\blogManagement\etc\web\Web::class
+        \grigor\blogManagement\etc\web\Web::class,
+        \grigor\userManagement\etc\web\Web::class
     ],
     'modules' => [],
     'components' => [
@@ -25,9 +26,11 @@ return [
             'csrfParam' => '_csrf-backend',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => \common\identities\WebIdentity::class,
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+
+            'loginUrl' => ['auth/index'],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
@@ -45,14 +48,29 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'login' => 'auth/index',
+                'logout' => 'auth/logout',
+
+                '<_c:[\w\-]+>' => '<_c>/index',
+                '<_c:[\w\-]+>/<id:\d+>' => '<_c>/view',
+                '<_c:[\w\-]+>/<_a:[\w-]+>' => '<_c>/<_a>',
+                '<_c:[\w\-]+>/<id:\d+>/<_a:[\w\-]+>' => '<_c>/<_a>',
             ],
         ],
-
+    ],
+    'as access' => [
+        'class' => 'yii\filters\AccessControl',
+        'except' => ['auth/index', 'site/error'],
+        'rules' => [
+            [
+                'allow' => true,
+                'roles' => ['@'],
+            ],
+        ],
     ],
     'params' => $params,
 ];

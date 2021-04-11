@@ -9,7 +9,6 @@ use yii\base\BootstrapInterface;
 
 class Web implements BootstrapInterface
 {
-
     public function bootstrap($app)
     {
         \Yii::$container->setSingleton(

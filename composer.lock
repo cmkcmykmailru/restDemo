@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "98f5e5e5e63e76037b9c6962c0bfbd7b",
+    "content-hash": "4b458a1b61346064d492f9d22364a8c9",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.4.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:twbs/bootstrap.git",
+                "url": "https://github.com/twbs/bootstrap.git",
                 "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "dist": {
@@ -101,6 +101,68 @@
             "license": [
                 "MIT"
             ]
+        },
+        {
+            "name": "bshaffer/oauth2-server-php",
+            "version": "v1.11.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bshaffer/oauth2-server-php.git",
+                "reference": "5a0c8000d4763b276919e2106f54eddda6bc50fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bshaffer/oauth2-server-php/zipball/5a0c8000d4763b276919e2106f54eddda6bc50fa",
+                "reference": "5a0c8000d4763b276919e2106f54eddda6bc50fa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "~2.8",
+                "firebase/php-jwt": "~2.2",
+                "mongodb/mongodb": "^1.1",
+                "phpunit/phpunit": "^4.0",
+                "predis/predis": "dev-master",
+                "thobbs/phpcassa": "dev-master"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "~2.8 is required to use DynamoDB storage",
+                "firebase/php-jwt": "~2.2 is required to use JWT features",
+                "mongodb/mongodb": "^1.1 is required to use MongoDB storage",
+                "predis/predis": "Required to use Redis storage",
+                "thobbs/phpcassa": "Required to use Cassandra storage"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "OAuth2": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brent Shaffer",
+                    "email": "bshafs@gmail.com",
+                    "homepage": "http://brentertainment.com"
+                }
+            ],
+            "description": "OAuth2 Server for PHP",
+            "homepage": "http://github.com/bshaffer/oauth2-server-php",
+            "keywords": [
+                "auth",
+                "oauth",
+                "oauth2"
+            ],
+            "support": {
+                "issues": "https://github.com/bshaffer/oauth2-server-php/issues",
+                "source": "https://github.com/bshaffer/oauth2-server-php/tree/master"
+            },
+            "time": "2018-12-04T00:29:32+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -460,6 +522,67 @@
             "time": "2020-06-29T00:56:53+00:00"
         },
         {
+            "name": "filsh/yii2-oauth2-server",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filsh/yii2-oauth2-server.git",
+                "reference": "9d3ebee96db084b8c1cd5ae596591518db461d3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filsh/yii2-oauth2-server/zipball/9d3ebee96db084b8c1cd5ae596591518db461d3b",
+                "reference": "9d3ebee96db084b8c1cd5ae596591518db461d3b",
+                "shasum": ""
+            },
+            "require": {
+                "bshaffer/oauth2-server-php": "^1.7",
+                "yiisoft/yii2": "*"
+            },
+            "default-branch": true,
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "filsh\\yii2\\oauth2server\\Bootstrap",
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "filsh\\yii2\\oauth2server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Maliy",
+                    "email": "imaliy.filsh@gmail.com"
+                },
+                {
+                    "name": "Vardan Pogosian",
+                    "email": "vardan.pogosyan@gmail.com"
+                }
+            ],
+            "description": "OAuth2 Server for PHP",
+            "homepage": "https://github.com/filsh/yii2-oauth2-server",
+            "keywords": [
+                "extension",
+                "module",
+                "oauth",
+                "oauth2",
+                "yii"
+            ],
+            "support": {
+                "email": "imaliy.filsh@gmail.com",
+                "issues": "https://github.com/filsh/yii2-oauth2-server/issues",
+                "source": "https://github.com/filsh/yii2-oauth2-server"
+            },
+            "time": "2020-10-19T12:31:09+00:00"
+        },
+        {
             "name": "grigor/yii2-blog",
             "version": "0.0.3",
             "source": {
@@ -655,6 +778,51 @@
                 "source": "https://github.com/cmkcmykmailru/yii2-rest/tree/1.0.1"
             },
             "time": "2021-03-07T23:53:45+00:00"
+        },
+        {
+            "name": "grigor/yii2-user-management",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "contexts/yii2-user-management",
+                "reference": "0c97f44e2e64276b5416127950ff4271b5f89aaa"
+            },
+            "require": {
+                "grigor/yii2-project-library": "^0.0.1",
+                "php": ">=7.4",
+                "yiisoft/yii2": "~2.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "8.5.x-dev"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "grigor\\userManagement\\": "src"
+                }
+            },
+            "scripts": {
+                "tests": [
+                    "php ./vendor/bin/phpunit --colors=always tests"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "grigor",
+                    "email": "cmk.cmyk@mail.ru"
+                }
+            ],
+            "description": "user management",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "imagine/imagine",
@@ -1257,12 +1425,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "0cf10304599829a2ce0881d13813df80ff4b431f"
+                "reference": "23e9ffaf6e8c716bce31bde1be708a405b1fbdf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/0cf10304599829a2ce0881d13813df80ff4b431f",
-                "reference": "0cf10304599829a2ce0881d13813df80ff4b431f",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/23e9ffaf6e8c716bce31bde1be708a405b1fbdf9",
+                "reference": "23e9ffaf6e8c716bce31bde1be708a405b1fbdf9",
                 "shasum": ""
             },
             "require": {
@@ -1325,7 +1493,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-06T08:29:08+00:00"
+            "time": "2021-04-10T06:08:01+00:00"
         },
         {
             "name": "symfony/polyfill-iconv",
@@ -1892,12 +2060,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "c608cceb6d3f9af91896c47c28c86417d4859db6"
+                "reference": "c6382b866e49805cfa0fd26b70586a8165f108b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/c608cceb6d3f9af91896c47c28c86417d4859db6",
-                "reference": "c608cceb6d3f9af91896c47c28c86417d4859db6",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/c6382b866e49805cfa0fd26b70586a8165f108b3",
+                "reference": "c6382b866e49805cfa0fd26b70586a8165f108b3",
                 "shasum": ""
             },
             "require": {
@@ -2006,7 +2174,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-07T18:55:25+00:00"
+            "time": "2021-04-10T10:02:23+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -4174,12 +4342,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "06b4961aabf900c72a20b7000bfa10fd7ae3035e"
+                "reference": "06e2ebd25f2869e54a306dda991f7db58066f7f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/06b4961aabf900c72a20b7000bfa10fd7ae3035e",
-                "reference": "06b4961aabf900c72a20b7000bfa10fd7ae3035e",
+                "url": "https://api.github.com/repos/opis/closure/zipball/06e2ebd25f2869e54a306dda991f7db58066f7f6",
+                "reference": "06e2ebd25f2869e54a306dda991f7db58066f7f6",
                 "shasum": ""
             },
             "require": {
@@ -4230,9 +4398,9 @@
             ],
             "support": {
                 "issues": "https://github.com/opis/closure/issues",
-                "source": "https://github.com/opis/closure/tree/master"
+                "source": "https://github.com/opis/closure/tree/3.6.2"
             },
-            "time": "2020-12-05T19:20:15+00:00"
+            "time": "2021-04-09T13:42:10+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6346,12 +6514,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "72c693916f81df954f3721327de8e6b7433fc6e3"
+                "reference": "9a90698d4624b85a578007a00312338d3adecaf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/72c693916f81df954f3721327de8e6b7433fc6e3",
-                "reference": "72c693916f81df954f3721327de8e6b7433fc6e3",
+                "url": "https://api.github.com/repos/symfony/console/zipball/9a90698d4624b85a578007a00312338d3adecaf8",
+                "reference": "9a90698d4624b85a578007a00312338d3adecaf8",
                 "shasum": ""
             },
             "require": {
@@ -6437,7 +6605,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-08T10:31:48+00:00"
+            "time": "2021-04-09T09:54:19+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -7703,6 +7871,7 @@
         "kartik-v/yii2-widget-fileinput": 20,
         "kartik-v/yii2-editable": 20,
         "grigor/yii2-blog-management": 20,
+        "grigor/yii2-user-management": 20,
         "codeception/module-rest": 20,
         "codeception/module-phpbrowser": 20
     },
