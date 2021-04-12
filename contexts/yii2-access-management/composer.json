@@ -1,0 +1,39 @@
+{
+  "name": "grigor/yii2-access-management",
+  "description": "access management",
+  "type": "yii2-extension",
+  "minimum-stability": "stable",
+  "keywords": [
+    "yii2",
+    "extension"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "grigor",
+      "email": "cmk.cmyk@mail.ru"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "yiisoft/yii2": "~2.0.0",
+    "grigor/yii2-project-library": "^0.0.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "8.5.x-dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "grigor\\accessManagement\\": "src"
+    }
+  },
+  "scripts": {
+    "tests": "php ./vendor/bin/phpunit --colors=always tests"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}

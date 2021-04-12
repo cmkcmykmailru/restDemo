@@ -52,7 +52,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'login' => 'auth/index',
+                '' => 'auth/index',
                 'logout' => 'auth/logout',
 
                 '<_c:[\w\-]+>' => '<_c>/index',

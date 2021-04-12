@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b458a1b61346064d492f9d22364a8c9",
+    "content-hash": "f08c5bd68bbd993fcbd3340bb8df49a8",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -581,6 +581,51 @@
                 "source": "https://github.com/filsh/yii2-oauth2-server"
             },
             "time": "2020-10-19T12:31:09+00:00"
+        },
+        {
+            "name": "grigor/yii2-access-management",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "contexts/yii2-access-management",
+                "reference": "4c4da5d9f72db1b14667865550810253ad037eef"
+            },
+            "require": {
+                "grigor/yii2-project-library": "^0.0.1",
+                "php": ">=7.4",
+                "yiisoft/yii2": "~2.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "8.5.x-dev"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "grigor\\accessManagement\\": "src"
+                }
+            },
+            "scripts": {
+                "tests": [
+                    "php ./vendor/bin/phpunit --colors=always tests"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "grigor",
+                    "email": "cmk.cmyk@mail.ru"
+                }
+            ],
+            "description": "access management",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "grigor/yii2-blog",
@@ -7454,12 +7499,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "e61bcd0d1665da9f6f5ffbd449a1c00f5b3de46a"
+                "reference": "8c98ad27ef5e3136237405b7653fa41498849b6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/e61bcd0d1665da9f6f5ffbd449a1c00f5b3de46a",
-                "reference": "e61bcd0d1665da9f6f5ffbd449a1c00f5b3de46a",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/8c98ad27ef5e3136237405b7653fa41498849b6f",
+                "reference": "8c98ad27ef5e3136237405b7653fa41498849b6f",
                 "shasum": ""
             },
             "require": {
@@ -7522,7 +7567,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-01T10:43:52+00:00"
+            "time": "2021-04-11T23:07:08+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -7872,6 +7917,7 @@
         "kartik-v/yii2-editable": 20,
         "grigor/yii2-blog-management": 20,
         "grigor/yii2-user-management": 20,
+        "grigor/yii2-access-management": 20,
         "codeception/module-rest": 20,
         "codeception/module-phpbrowser": 20
     },

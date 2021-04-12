@@ -5,6 +5,7 @@ namespace grigor\userManagement\modules\user;
 use grigor\library\entity\EventTrait;
 use grigor\userManagement\modules\user\api\UserInterface;
 use grigor\userManagement\modules\user\events\UserLoggedIn;
+use Ramsey\Uuid\Uuid;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
@@ -47,6 +48,11 @@ class User extends ActiveRecord implements UserInterface
     public function loginNotify(): void
     {
         $this->recordEvent(new UserLoggedIn($this->id));
+    }
+
+    public function generateAuthKey(): void
+    {
+        $this->auth_key = Uuid::uuid4()->toString();
     }
 
     /**

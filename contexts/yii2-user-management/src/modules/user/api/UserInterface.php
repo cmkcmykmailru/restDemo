@@ -18,4 +18,6 @@ interface UserInterface extends ActiveRecordInterface
     public function setPassword(string $password): void;
 
     public function loginNotify(): void;
+
+    public function generateAuthKey(): void;
 }
