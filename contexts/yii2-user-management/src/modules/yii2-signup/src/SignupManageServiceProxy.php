@@ -6,7 +6,7 @@ use grigor\library\services\ServiceEventsProxy;
 use grigor\signup\api\dto\SignUpDto;
 use grigor\signup\api\SignupManageServiceInterface;
 
-class SignupManageServiceProxy implements SignupManageServiceInterface
+class SignupManageServiceProxy  extends ServiceEventsProxy implements SignupManageServiceInterface
 {
     public function __construct(
         SignupManageServiceInterface $realService,

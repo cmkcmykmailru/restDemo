@@ -19,6 +19,7 @@
     "yiisoft/yii2": "~2.0.0",
     "grigor/yii2-project-library": "^0.0.1",
     "grigor/yii2-access-management": "dev-master",
+    "grigor/yii2-user-management": "dev-master",
     "ramsey/uuid": "^4.1"
   },
   "require-dev": {
@@ -40,6 +41,10 @@
     {
       "type": "path",
       "url": "../../../../yii2-access-management"
+    },
+    {
+      "type": "path",
+      "url": "../../../../yii2-user-management"
     }
   ]
 }

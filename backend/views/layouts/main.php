@@ -40,11 +40,22 @@ AppAsset::register($this);
 
     ];
 
-    $menuItems[] = ['label' => 'Посты', 'url' => ['/blog/post/index']];
-    $menuItems[] = ['label' => 'Корзина', 'url' => ['/blog/trash/index']];
-    $menuItems[] = ['label' => 'Категории', 'url' => ['/blog/category/index']];
-    $menuItems[] = ['label' => 'Теги', 'url' => ['/blog/tag/index']];
-
+    if (Yii::$app->user->isGuest) {
+        $menuItems[] = ['label' => 'Signup', 'url' => ['/signup/index']];
+     } else {
+        $menuItems[] = ['label' => 'Посты', 'url' => ['/blog/post/index']];
+        $menuItems[] = ['label' => 'Корзина', 'url' => ['/blog/trash/index']];
+        $menuItems[] = ['label' => 'Категории', 'url' => ['/blog/category/index']];
+        $menuItems[] = ['label' => 'Теги', 'url' => ['/blog/tag/index']];
+        $menuItems[] = '<li>'
+            . Html::beginForm(['/auth/logout'], 'post')
+            . Html::submitButton(
+                'Logout (' . Yii::$app->user->identity->username . ')',
+                ['class' => 'btn btn-link logout']
+            )
+            . Html::endForm()
+            . '</li>';;
+    }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,

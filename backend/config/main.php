@@ -18,7 +18,8 @@ return [
         'log',
         \grigor\library\Bootstrap::class,
         \grigor\blogManagement\etc\web\Web::class,
-        \grigor\userManagement\etc\web\Web::class
+        \grigor\userManagement\etc\web\Web::class,
+        \grigor\accessManagement\etc\web\Web::class,
     ],
     'modules' => [],
     'components' => [
@@ -54,6 +55,8 @@ return [
             'rules' => [
                 '' => 'auth/index',
                 'logout' => 'auth/logout',
+                'signup' => 'signup/index',
+                'confirm' => 'signup/confirm',
 
                 '<_c:[\w\-]+>' => '<_c>/index',
                 '<_c:[\w\-]+>/<id:\d+>' => '<_c>/view',
@@ -64,7 +67,7 @@ return [
     ],
     'as access' => [
         'class' => 'yii\filters\AccessControl',
-        'except' => ['auth/index', 'site/error'],
+        'except' => ['auth/index', 'site/error', 'signup/index', 'signup/confirm'],
         'rules' => [
             [
                 'allow' => true,

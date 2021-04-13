@@ -17,7 +17,9 @@
   "require": {
     "php": ">=7.4",
     "yiisoft/yii2": "~2.0.0",
-    "grigor/yii2-project-library": "^0.0.1"
+    "grigor/yii2-project-library": "^0.0.1",
+    "grigor/yii2-signup": "dev-master",
+    "grigor/yii2-access-management": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "8.5.x-dev"
@@ -34,6 +36,14 @@
     {
       "type": "composer",
       "url": "https://asset-packagist.org"
+    },
+    {
+      "type": "path",
+      "url": "src/modules/yii2-signup"
+    },
+    {
+      "type": "path",
+      "url": "../yii2-access-management"
     }
   ]
 }

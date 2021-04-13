@@ -37,14 +37,14 @@ class AuthController extends Controller
     public function actionIndex()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->redirect(['/blog/post/index']);
         }
 
         $form = new LoginForm();
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             try {
                 $this->userManagement->login($form);
-                return $this->goBack();
+                return $this->redirect(['/blog/post/index']);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
                 Yii::$app->session->setFlash('error', $e->getMessage());
@@ -59,7 +59,7 @@ class AuthController extends Controller
     /**
      * @return mixed
      */
-    public function actionlogout()
+    public function actionLogout()
     {
         Yii::$app->user->logout();
         return $this->goHome();

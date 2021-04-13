@@ -2,6 +2,8 @@
 
 namespace grigor\signup;
 
+use grigor\library\repositories\strategies\DeleteStrategyInterface;
+use grigor\library\repositories\strategies\SaveStrategyInterface;
 use grigor\signup\api\dto\SignUpDto;
 use grigor\signup\api\SignupFactoryInterface;
 use grigor\signup\api\SignupRepositoryInterface;
@@ -16,9 +18,11 @@ class SignupRepository extends UserRepository implements SignupRepositoryInterfa
      * SignupRepository constructor.
      * @param SignupFactoryInterface $factory
      */
-    public function __construct(SignupFactoryInterface $factory)
+    public function __construct(SignupFactoryInterface $factory, SaveStrategyInterface $saveStrategy,
+                                DeleteStrategyInterface $deleteStrategy)
     {
         $this->factory = $factory;
+        parent::__construct($saveStrategy, $deleteStrategy);
     }
 
     /**

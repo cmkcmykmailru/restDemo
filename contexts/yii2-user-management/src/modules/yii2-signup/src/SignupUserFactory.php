@@ -44,7 +44,7 @@ class SignupUserFactory implements SignupFactoryInterface
         $user->status = UserInterface::STATUS_WAIT;
         $user->email_confirm_token = Yii::$app->security->generateRandomString();
         $user->generateAuthKey();
-        $user->recordEvent(new UserSignUpRequested($user));
+        $user->recordEvent(new UserSignUpRequested($user->id));
         return $user;
     }
 }

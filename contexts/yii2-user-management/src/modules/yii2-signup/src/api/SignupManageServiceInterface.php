@@ -2,9 +2,10 @@
 
 namespace grigor\signup\api;
 
+use grigor\library\services\Service;
 use grigor\signup\api\dto\SignUpDto;
 
-interface SignupManageServiceInterface
+interface SignupManageServiceInterface extends Service
 {
     public function request(SignupDto $dto): void;
 

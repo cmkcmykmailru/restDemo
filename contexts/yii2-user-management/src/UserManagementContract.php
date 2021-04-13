@@ -12,4 +12,6 @@ interface UserManagementContract
     public function findActiveUserByUsername(string $username): ?UserInterface;
 
     public function login(LoginForm $form): UserInterface;
+
+    public function getDefinitionOf(string $className): string;
 }

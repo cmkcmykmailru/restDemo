@@ -1,21 +1,21 @@
 <?php
-namespace grigor\signup\controllers;
 
-use grigor\signup\model\handlers\RequestHandler;
-use grigor\signup\model\forms\SignupForm;
+namespace backend\controllers;
+
+use grigor\userManagement\services\forms\SignupForm;
+use grigor\userManagement\SignupContract;
 use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 
-class RequestController extends Controller
+class SignupController extends Controller
 {
+    private SignupContract $signupContract;
 
-    private $requestHandler;
-
-    public function __construct($id, $module, RequestHandler $handler, $config = [])
+    public function __construct($id, $module, SignupContract $signupContract, $config = [])
     {
         parent::__construct($id, $module, $config);
-        $this->requestHandler = $handler;
+        $this->signupContract = $signupContract;
     }
 
     public function behaviors(): array
@@ -29,6 +29,10 @@ class RequestController extends Controller
                         'actions' => ['index'],
                         'allow' => true,
                         'roles' => ['?'],
+                    ], [
+                        'actions' => ['confirm'],
+                        'allow' => true,
+                        'roles' => ['?'],
                     ],
                 ],
             ],
@@ -40,10 +44,10 @@ class RequestController extends Controller
      */
     public function actionIndex()
     {
-        $form = new SignupForm($this->module->userEntity);
+        $form = new SignupForm();
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             try {
-                $this->requestHandler->execute($form);
+                $this->signupContract->request($form);
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
                 return $this->goHome();
             } catch (\DomainException $e) {
@@ -57,4 +61,20 @@ class RequestController extends Controller
         ]);
     }
 
+    /**
+     * @param $token
+     * @return mixed
+     */
+    public function actionConfirm($token)
+    {
+        try {
+            $this->signupContract->confirm($token);
+            Yii::$app->session->setFlash('success', 'Your email is confirmed.');
+            return $this->redirect(['/auth/index']);
+        } catch (\DomainException $e) {
+            Yii::$app->errorHandler->logException($e);
+            Yii::$app->session->setFlash('error', $e->getMessage());
+        }
+        return $this->goHome();
+    }
 }

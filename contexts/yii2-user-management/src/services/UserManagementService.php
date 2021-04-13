@@ -28,4 +28,16 @@ class UserManagementService extends AbstractContract implements UserManagementCo
         $dto = new LoginDto($form->username, $form->password, $form->rememberMe);
         return $this->container()->get(UserManageServiceInterface::class)->login($dto);
     }
+
+    public function getDefinitionOf(string $className): string
+    {
+        $this->container();
+        $definitions = \Yii::$container->getDefinitions();
+
+        if (!\Yii::$container->has($className)) {
+            throw new RuntimeException('Class ' . $className . ' is not registered correctly.');
+        }
+
+        return $definitions[$className]['class'];
+    }
 }

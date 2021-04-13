@@ -27,6 +27,7 @@
         "grigor/yii2-blog-management": "dev-master",
         "grigor/yii2-user-management": "dev-master",
         "grigor/yii2-access-management": "dev-master",
+        "grigor/yii2-signup": "dev-master",
         "filsh/yii2-oauth2-server": "^2.1.1"
     },
     "require-dev": {
