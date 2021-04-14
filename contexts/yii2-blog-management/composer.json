@@ -17,7 +17,7 @@
   "require": {
     "php": ">=7.4",
     "yiisoft/yii2": "~2.0.0",
-    "grigor/yii2-project-library": "^0.0.1",
+    "grigor/yii2-project-library": "~0.0.1",
     "grigor/yii2-blog": "~0.0.3"
   },
   "require-dev": {

@@ -99,7 +99,7 @@ return [
     ],
     'as authenticator' => [
         'class' => 'filsh\yii2\oauth2server\filters\auth\CompositeAuth',
-        'except' => ['site/index', 'oauth2/rest/token'],
+        'except' => ['site/index','post/all' ,'oauth2/rest/token'],
         'authMethods' => [
             ['class' => 'yii\filters\auth\HttpBearerAuth'],
             ['class' => 'yii\filters\auth\QueryParamAuth', 'tokenParam' => 'accessToken'],
@@ -107,7 +107,7 @@ return [
     ],
     'as access' => [
         'class' => 'yii\filters\AccessControl',
-        'except' => ['site/index', 'oauth2/rest/token'],
+        'except' => ['site/index','post/all' , 'oauth2/rest/token'],
         'rules' => [
             [
                 'allow' => true,

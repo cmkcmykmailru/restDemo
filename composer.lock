@@ -32,7 +32,7 @@
             "version": "3.3.11",
             "source": {
                 "type": "git",
-                "url": "https://github.com/RobinHerbots/Inputmask.git",
+                "url": "git@github.com:RobinHerbots/Inputmask.git",
                 "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "dist": {
@@ -644,10 +644,10 @@
             "dist": {
                 "type": "path",
                 "url": "contexts/yii2-access-management",
-                "reference": "4c4da5d9f72db1b14667865550810253ad037eef"
+                "reference": "08c9b33d8e5fbb5ffa7e6058bef1c81eb9be1825"
             },
             "require": {
-                "grigor/yii2-project-library": "^0.0.1",
+                "grigor/yii2-project-library": "~0.0.1",
                 "php": ">=7.4",
                 "yiisoft/yii2": "~2.0.0"
             },
@@ -685,21 +685,21 @@
         },
         {
             "name": "grigor/yii2-blog",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cmkcmykmailru/yii2-blog.git",
-                "reference": "f4cd0220684be1aca25ac955cef3029611343bae"
+                "reference": "5cabcccdddd0b27d57e87f97a16d4dd798911851"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cmkcmykmailru/yii2-blog/zipball/f4cd0220684be1aca25ac955cef3029611343bae",
-                "reference": "f4cd0220684be1aca25ac955cef3029611343bae",
+                "url": "https://api.github.com/repos/cmkcmykmailru/yii2-blog/zipball/5cabcccdddd0b27d57e87f97a16d4dd798911851",
+                "reference": "5cabcccdddd0b27d57e87f97a16d4dd798911851",
                 "shasum": ""
             },
             "require": {
                 "elisdn/yii2-composite-form": "^1.1",
-                "grigor/yii2-project-library": "^0.0.1",
+                "grigor/yii2-project-library": "~0.0.1",
                 "la-haute-societe/yii2-save-relations-behavior": "^1.7.2",
                 "paulzi/yii2-nested-sets": "^1.0",
                 "php": ">=7.4",
@@ -732,9 +732,9 @@
             ],
             "support": {
                 "issues": "https://github.com/cmkcmykmailru/yii2-blog/issues",
-                "source": "https://github.com/cmkcmykmailru/yii2-blog/tree/0.0.3"
+                "source": "https://github.com/cmkcmykmailru/yii2-blog/tree/0.0.4"
             },
-            "time": "2021-04-08T20:34:35+00:00"
+            "time": "2021-04-14T19:52:28+00:00"
         },
         {
             "name": "grigor/yii2-blog-management",
@@ -742,11 +742,11 @@
             "dist": {
                 "type": "path",
                 "url": "contexts/yii2-blog-management",
-                "reference": "1a2d169ee310a70323e834b64495cf98303c8a4d"
+                "reference": "2c7534ffd4b6f4f57d976aafc1d813e323bfca17"
             },
             "require": {
                 "grigor/yii2-blog": "~0.0.3",
-                "grigor/yii2-project-library": "^0.0.1",
+                "grigor/yii2-project-library": "~0.0.1",
                 "php": ">=7.4",
                 "yiisoft/yii2": "~2.0.0"
             },
@@ -886,11 +886,11 @@
             "dist": {
                 "type": "path",
                 "url": "contexts/yii2-user-management/src/modules/yii2-signup",
-                "reference": "9ef119bcb14f29e53aa511d934e094c09fdbce9a"
+                "reference": "b498c778e20e467826cb0bdedb1913ba2752e810"
             },
             "require": {
                 "grigor/yii2-access-management": "dev-master",
-                "grigor/yii2-project-library": "^0.0.1",
+                "grigor/yii2-project-library": "~0.0.1",
                 "grigor/yii2-user-management": "dev-master",
                 "php": ">=7.4",
                 "ramsey/uuid": "^4.1",
@@ -934,11 +934,11 @@
             "dist": {
                 "type": "path",
                 "url": "contexts/yii2-user-management",
-                "reference": "b4d8068ad53c878147cc04961d964f9df51a26eb"
+                "reference": "3c49af7ff1b62073fb3650d665e9cf300889d099"
             },
             "require": {
                 "grigor/yii2-access-management": "dev-master",
-                "grigor/yii2-project-library": "^0.0.1",
+                "grigor/yii2-project-library": "~0.0.1",
                 "grigor/yii2-signup": "dev-master",
                 "php": ">=7.4",
                 "yiisoft/yii2": "~2.0.0"

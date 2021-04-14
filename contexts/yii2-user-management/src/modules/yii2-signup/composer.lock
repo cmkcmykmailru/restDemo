@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17f478dab516ff675c1a59cadd6bea6d",
+    "content-hash": "8be8e5b5ebde4336fda92969579c8c39",
     "packages": [
         {
             "name": "bower-asset/inputmask",
             "version": "3.3.11",
             "source": {
                 "type": "git",
-                "url": "https://github.com/RobinHerbots/Inputmask.git",
+                "url": "git@github.com:RobinHerbots/Inputmask.git",
                 "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "dist": {
@@ -261,10 +261,10 @@
             "dist": {
                 "type": "path",
                 "url": "../../../../yii2-access-management",
-                "reference": "4c4da5d9f72db1b14667865550810253ad037eef"
+                "reference": "08c9b33d8e5fbb5ffa7e6058bef1c81eb9be1825"
             },
             "require": {
-                "grigor/yii2-project-library": "^0.0.1",
+                "grigor/yii2-project-library": "~0.0.1",
                 "php": ">=7.4",
                 "yiisoft/yii2": "~2.0.0"
             },
@@ -302,16 +302,16 @@
         },
         {
             "name": "grigor/yii2-project-library",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cmkcmykmailru/yii2-project-library.git",
-                "reference": "56be9f863de86d66812e4bfb60793a3b92c4afab"
+                "reference": "531456d7cbdd234ada3ec0d3625eb39a36f55b91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cmkcmykmailru/yii2-project-library/zipball/56be9f863de86d66812e4bfb60793a3b92c4afab",
-                "reference": "56be9f863de86d66812e4bfb60793a3b92c4afab",
+                "url": "https://api.github.com/repos/cmkcmykmailru/yii2-project-library/zipball/531456d7cbdd234ada3ec0d3625eb39a36f55b91",
+                "reference": "531456d7cbdd234ada3ec0d3625eb39a36f55b91",
                 "shasum": ""
             },
             "require": {
@@ -345,9 +345,9 @@
             ],
             "support": {
                 "issues": "https://github.com/cmkcmykmailru/yii2-project-library/issues",
-                "source": "https://github.com/cmkcmykmailru/yii2-project-library/tree/0.0.1"
+                "source": "https://github.com/cmkcmykmailru/yii2-project-library/tree/0.0.2"
             },
-            "time": "2021-04-06T18:57:04+00:00"
+            "time": "2021-04-14T19:43:15+00:00"
         },
         {
             "name": "grigor/yii2-user-management",
@@ -355,10 +355,12 @@
             "dist": {
                 "type": "path",
                 "url": "../../../../yii2-user-management",
-                "reference": "0c97f44e2e64276b5416127950ff4271b5f89aaa"
+                "reference": "3c49af7ff1b62073fb3650d665e9cf300889d099"
             },
             "require": {
-                "grigor/yii2-project-library": "^0.0.1",
+                "grigor/yii2-access-management": "dev-master",
+                "grigor/yii2-project-library": "~0.0.1",
+                "grigor/yii2-signup": "dev-master",
                 "php": ">=7.4",
                 "yiisoft/yii2": "~2.0.0"
             },

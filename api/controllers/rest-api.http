@@ -1,3 +1,4 @@
+### открыт один ресурс (этот) у него алиас post/all остальные закрыты см api/config/main.php
 GET http://api.rest.local/v1/blog/posts
 Accept: application/json
 

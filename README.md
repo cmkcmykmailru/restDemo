@@ -50,16 +50,25 @@ return [
 
 ```shell
 php yii migrate --migrationPath=@grigor/blog/etc/migrations
+php yii migrate --migrationPath=@yii/rbac/migrations
+php yii migrate --migrationPath=@grigor/userManagement/etc/migrations
 php yii migrate --migrationPath=@grigor/signup/etc/migrations
 ```
 
 Направьте домены на папки 
 
-**api/web**  
+**api/web** 
 
 **backend/web**  
 
-**frontend/web**  
+В папке api/controllers вы найдете конфиг http клиента phpstorm можно поиграться.
+Открыт один ресурс остальные требуют авторизации [OAuth 2.0](https://ru.wikipedia.org/wiki/OAuth) 
+см. конфиг.
+
+Для примера я добавил модуль регистрации КОТОРЫЙ В АДМИНКЕ НЕ НУЖЕН, через него можно удобно зарегаться в системе.
+
+В планах покрыть тестами и дополнить инфраструктуру базовыми объектами: http делегатом для контекстов, консольным генератором контекстов 
+и модулей (базовые фалы и структура каталогов). Следите за [yii2-project-library](https://github.com/cmkcmykmailru/yii2-project-library) 
 
 Если вы пользователь laradock и хотите сопрячь два хоста, то вам следует перейти в корень laradock и изменить файл
 docker-compose.yml, а именно изменить настройки своего сервера добавив алиасы в разделе нетворкс.
@@ -104,3 +113,13 @@ docker-compose.yml, а именно изменить настройки свое
 docker-compose build --no-cache php-fpm workspace
 ```
 
+**Тестировать**
+
+Запуск приложения
+```shell
+composer serv
+```
+Запуск тестов api
+```shell
+composer api
+```
