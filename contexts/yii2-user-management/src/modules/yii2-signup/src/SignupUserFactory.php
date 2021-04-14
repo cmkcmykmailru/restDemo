@@ -41,7 +41,7 @@ class SignupUserFactory implements SignupFactoryInterface
         $user->email = $dto->email;
         $user->setPassword($dto->password);
         $user->created_at = time();
-        $user->status = UserInterface::STATUS_WAIT;
+        $user->status = UserInterface::STATUS_ACTIVE; // замените если нужно через почту регать UserInterface::STATUS_WAIT; но следует позаботиться об отправке писем
         $user->email_confirm_token = Yii::$app->security->generateRandomString();
         $user->generateAuthKey();
         $user->recordEvent(new UserSignUpRequested($user->id));
