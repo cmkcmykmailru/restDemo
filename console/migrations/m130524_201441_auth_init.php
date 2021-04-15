@@ -15,9 +15,9 @@ class m130524_201441_auth_init extends Migration
             }
 
             $this->createTable('{{%user}}', [
-                'id' => $this->string()->notNull()->unique(),
+                'id' =>  $this->char(36)->notNull()->unique(),
                 'username' => $this->string()->notNull()->unique(),
-                'auth_key' => $this->string(32)->notNull(),
+                'auth_key' =>  $this->char(36)->notNull(),
                 'password_hash' => $this->string()->notNull(),
                 'status' => $this->smallInteger()->notNull()->defaultValue(10),
                 'created_at' => $this->integer()->unsigned()->notNull(),
@@ -31,6 +31,6 @@ class m130524_201441_auth_init extends Migration
 
     public function down()
     {
-        $this->dropTable('{{%user}}');
+
     }
 }
