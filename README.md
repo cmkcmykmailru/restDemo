@@ -49,8 +49,9 @@ return [
 Выполните миграции
 
 ```shell
-php yii migrate --migrationPath=@grigor/blog/etc/migrations
+php yii migrate
 php yii migrate --migrationPath=@yii/rbac/migrations
+php yii migrate --migrationPath=@grigor/blog/etc/migrations
 php yii migrate --migrationPath=@grigor/userManagement/etc/migrations
 php yii migrate --migrationPath=@grigor/signup/etc/migrations
 ```
