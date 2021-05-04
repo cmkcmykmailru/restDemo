@@ -3,7 +3,7 @@
 namespace grigor\blogManagement\services\forms;
 
 use grigor\blog\module\tag\api\TagInterface;
-use grigor\library\helpers\DefinitionHelper;
+use grigor\blogManagement\BlogManagementContract;
 use grigor\library\validators\SlugValidator;
 use yii\base\Model;
 
@@ -28,12 +28,13 @@ class TagForm extends Model
 
     public function rules(): array
     {
+        $contract = \Yii::$container->get(BlogManagementContract::class);
         return array_filter([
             $this->strict ? [['name', 'slug'], 'required'] : false,
             !$this->strict ? [['name', 'slug'], 'validateEmpty'] : false,
             [['name', 'slug'], 'string', 'max' => 255],
             ['slug', SlugValidator::class],
-            [['name', 'slug'], 'unique', 'targetClass' => DefinitionHelper::getDefinition(TagInterface::class), 'filter' => $this->_tag ? ['<>', 'id', $this->_tag->id] : null],
+            [['name', 'slug'], 'unique', 'targetClass' => $contract->getDefinitionOf(TagInterface::class), 'filter' => $this->_tag ? ['<>', 'id', $this->_tag->id] : null],
             [['name', 'slug'], 'safe'],
         ]);
     }

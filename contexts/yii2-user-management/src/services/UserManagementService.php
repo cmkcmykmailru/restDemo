@@ -9,6 +9,7 @@ use grigor\userManagement\modules\user\api\UserManageServiceInterface;
 use grigor\userManagement\modules\user\api\UserReadRepositoryInterface;
 use grigor\userManagement\services\forms\LoginForm;
 use grigor\userManagement\UserManagementContract;
+use RuntimeException;
 
 class UserManagementService extends AbstractContract implements UserManagementContract
 {
@@ -40,4 +41,5 @@ class UserManagementService extends AbstractContract implements UserManagementCo
 
         return $definitions[$className]['class'];
     }
+
 }

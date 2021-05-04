@@ -36,4 +36,9 @@ class SignUpService extends AbstractContract implements SignupContract
         $this->container()
             ->get(SignupManageServiceInterface::class)->confirm($token);
     }
+
+    public function getName(): string
+    {
+        return 'SignUp';
+    }
 }

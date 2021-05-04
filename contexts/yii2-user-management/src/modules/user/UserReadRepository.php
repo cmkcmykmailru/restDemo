@@ -33,7 +33,6 @@ class UserReadRepository implements UserReadRepositoryInterface
 
     protected function getQuery(): ActiveQueryInterface
     {
-        $postClass = DefinitionHelper::getDefinition(UserInterface::class);
-        return $postClass::find();
+        return User::find();
     }
 }

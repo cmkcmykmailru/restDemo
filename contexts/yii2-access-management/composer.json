@@ -2,7 +2,7 @@
   "name": "grigor/yii2-access-management",
   "description": "access management",
   "type": "yii2-extension",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "keywords": [
     "yii2",
     "extension"

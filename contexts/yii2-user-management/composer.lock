@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3aa26d3c25d9a2215c8109de176e4e75",
+    "content-hash": "59007843ce0a128e763dbb73b3e6ef97",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -32,7 +32,7 @@
             "version": "3.5.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
             },
             "dist": {
@@ -262,10 +262,10 @@
             "dist": {
                 "type": "path",
                 "url": "../yii2-access-management",
-                "reference": "08c9b33d8e5fbb5ffa7e6058bef1c81eb9be1825"
+                "reference": "227661b242f052cc3e80247c5d99ec5d6cc22700"
             },
             "require": {
-                "grigor/yii2-project-library": "~0.0.1",
+                "grigor/yii2-project-library": "dev-master",
                 "php": ">=7.4",
                 "yiisoft/yii2": "~2.0.0"
             },
@@ -303,17 +303,11 @@
         },
         {
             "name": "grigor/yii2-project-library",
-            "version": "0.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cmkcmykmailru/yii2-project-library.git",
-                "reference": "531456d7cbdd234ada3ec0d3625eb39a36f55b91"
-            },
+            "version": "dev-master",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cmkcmykmailru/yii2-project-library/zipball/531456d7cbdd234ada3ec0d3625eb39a36f55b91",
-                "reference": "531456d7cbdd234ada3ec0d3625eb39a36f55b91",
-                "shasum": ""
+                "type": "path",
+                "url": "../../../ext/yii2-project-library",
+                "reference": "cdd2003fd64b07c014ddb735d4cb243450cde058"
             },
             "require": {
                 "php": ">=7.4",
@@ -329,7 +323,11 @@
                     "grigor\\library\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "tests": [
+                    "php ./vendor/bin/phpunit --colors=always tests"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -344,11 +342,9 @@
                 "extension",
                 "yii2"
             ],
-            "support": {
-                "issues": "https://github.com/cmkcmykmailru/yii2-project-library/issues",
-                "source": "https://github.com/cmkcmykmailru/yii2-project-library/tree/0.0.2"
-            },
-            "time": "2021-04-14T19:43:15+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "grigor/yii2-signup",
@@ -356,12 +352,11 @@
             "dist": {
                 "type": "path",
                 "url": "src/modules/yii2-signup",
-                "reference": "b498c778e20e467826cb0bdedb1913ba2752e810"
+                "reference": "986b4eb0bbb6482d0bd27b85bafad6ad18d3c29c"
             },
             "require": {
                 "grigor/yii2-access-management": "dev-master",
-                "grigor/yii2-project-library": "~0.0.1",
-                "grigor/yii2-user-management": "dev-master",
+                "grigor/yii2-project-library": "dev-master",
                 "php": ">=7.4",
                 "ramsey/uuid": "^4.1",
                 "yiisoft/yii2": "~2.0.0"
@@ -1002,12 +997,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-queue.git",
-                "reference": "7d1207338c6481df5cca704ced94c9a402b0d321"
+                "reference": "974f9d6896b96084a027a3c46b1d2111a50b2d49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-queue/zipball/7d1207338c6481df5cca704ced94c9a402b0d321",
-                "reference": "7d1207338c6481df5cca704ced94c9a402b0d321",
+                "url": "https://api.github.com/repos/yiisoft/yii2-queue/zipball/974f9d6896b96084a027a3c46b1d2111a50b2d49",
+                "reference": "974f9d6896b96084a027a3c46b1d2111a50b2d49",
                 "shasum": ""
             },
             "require": {
@@ -1101,7 +1096,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-23T17:04:38+00:00"
+            "time": "2021-04-16T07:50:27+00:00"
         }
     ],
     "packages-dev": [
@@ -2810,6 +2805,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "grigor/yii2-project-library": 20,
         "grigor/yii2-signup": 20,
         "grigor/yii2-access-management": 20,
         "phpunit/phpunit": 20

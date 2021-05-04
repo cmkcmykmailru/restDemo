@@ -2,7 +2,7 @@
 
 namespace grigor\blogManagement\overrides\blog\module\post;
 
-use grigor\blog\module\post\api\dto\PostDto;
+use grigor\blog\module\post\api\commands\PostCommand;
 use grigor\blog\module\post\api\PostEditorInterface;
 use grigor\blog\module\post\api\PostInterface;
 
@@ -13,12 +13,12 @@ use grigor\blog\module\post\api\PostInterface;
  */
 class PostEditorOverride implements PostEditorInterface
 {
-    public function edit(PostInterface $post, PostDto $dto): void
+    public function edit(PostInterface $post, PostCommand $command): void
     {
-        $post->category_id = $dto->categories->main;
-        $post->title = $dto->title;
-        $post->description = $dto->description;
-        $post->content = $dto->content;
-        $post->meta = $dto->meta;
+        $post->category_id = $command->categories->main;
+        $post->title = $command->title;
+        $post->description = $command->description;
+        $post->content = $command->content;
+        $post->meta = $command->meta;
     }
 }

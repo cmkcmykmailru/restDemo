@@ -5,25 +5,22 @@ namespace grigor\blogManagement\services;
 use grigor\blog\module\category\api\CategoryInterface;
 use grigor\blog\module\category\api\CategoryManageServiceInterface;
 use grigor\blog\module\category\api\CategoryReadRepositoryInterface;
-use grigor\blog\module\category\api\dto\CategoryDto;
-use grigor\blog\module\post\api\dto\CategoriesDto;
-use grigor\blog\module\post\api\dto\PostDto;
-use grigor\blog\module\post\api\dto\TagsDto;
+use grigor\blog\module\category\api\commands\CategoryCommand;
+use grigor\blog\module\post\api\commands\CategoriesCommand;
+use grigor\blog\module\post\api\commands\PostCommand;
+use grigor\blog\module\post\api\commands\TagsCommand;
 use grigor\blog\module\post\api\PostInterface;
 use grigor\blog\module\post\api\PostManageServiceInterface;
 use grigor\blog\module\post\api\PostReadRepositoryInterface;
-use grigor\blog\module\post\api\TrashManageServiceInterface;
-use grigor\blog\module\tag\api\dto\TagDto;
+use grigor\blog\module\tag\api\commands\TagCommand;
 use grigor\blog\module\tag\api\TagInterface;
 use grigor\blog\module\tag\api\TagManageServiceInterface;
 use grigor\blogManagement\BlogManagementContract;
 use grigor\blogManagement\services\forms\CategoryForm;
 use grigor\blogManagement\services\forms\PostForm;
 use grigor\blogManagement\services\forms\TagForm;
+use grigor\library\commands\MetaCommand;
 use grigor\library\contexts\AbstractContract;
-use grigor\library\dto\Meta;
-use grigor\library\helpers\DefinitionHelper;
-use RuntimeException;
 use yii\data\DataProviderInterface;
 use yii\db\ActiveQueryInterface;
 
@@ -32,56 +29,57 @@ class BlogManagementService extends AbstractContract implements BlogManagementCo
 
     public function createPost(PostForm $form): PostInterface
     {
-        $dto = new PostDto($form->title,
+        $command = new PostCommand(
+            $form->title,
             $form->content,
-            new CategoriesDto($form->categories->main, $form->categories->others),
-            new Meta($form->meta->title, $form->meta->description),
-            new TagsDto($form->tags->tags),
+            new CategoriesCommand($form->categories->main, $form->categories->others),
+            new MetaCommand($form->meta->title, $form->meta->description),
+            new TagsCommand($form->tags->tags),
             null,
-            $form->description);
-        return $this->container()->get(PostManageServiceInterface::class)->create($dto);
+            $form->description
+        );
+
+        return $this->container()->get(PostManageServiceInterface::class)->create($command);
     }
 
     public function createPostQuery(): ActiveQueryInterface
     {
-        $this->container();
-        $postClass = DefinitionHelper::getDefinition(PostInterface::class);
-        return $postClass::find();
+        $class = $this->container()->getDefinitionOf(PostInterface::class);
+        return $class::find();
     }
 
     public function createCategoryQuery(): ActiveQueryInterface
     {
-        $this->container();
-        $categoryQuery = DefinitionHelper::getDefinition(CategoryInterface::class);
-        return $categoryQuery::find();
+        $class = $this->container()->getDefinitionOf(CategoryInterface::class);
+        return $class::find();
     }
 
     public function editPost(string $id, PostForm $form): void
     {
-        $dto = new PostDto(
+        $command = new PostCommand(
             $form->title,
             $form->content,
-            new CategoriesDto($form->categories->main, $form->categories->others),
-            new Meta($form->meta->title, $form->meta->description),
-            new TagsDto($form->tags->tags),
+            new CategoriesCommand($form->categories->main, $form->categories->others),
+            new MetaCommand($form->meta->title, $form->meta->description),
+            new TagsCommand($form->tags->tags),
             $id,
             $form->description);
-        $this->container()->get(PostManageServiceInterface::class)->edit($dto);
+        $this->container()->get(PostManageServiceInterface::class)->edit($command);
     }
 
     public function removePost(string $id): void
     {
-        $this->container()->get(TrashManageServiceInterface::class)->remove($id);
+        $this->container()->get(PostManageServiceInterface::class)->remove($id);
     }
 
     public function trashPost(string $id): void
     {
-        $this->container()->get(TrashManageServiceInterface::class)->trash($id);
+        $this->container()->get(PostManageServiceInterface::class)->trash($id);
     }
 
     public function restorePostFromTrash(string $id): void
     {
-        $this->container()->get(TrashManageServiceInterface::class)->restoreFromTrash($id);
+        $this->container()->get(PostManageServiceInterface::class)->restoreFromTrash($id);
     }
 
     public function activatePost(string $id): void
@@ -96,28 +94,28 @@ class BlogManagementService extends AbstractContract implements BlogManagementCo
 
     public function createCategory(CategoryForm $form): CategoryInterface
     {
-        $dto = new CategoryDto(
+        $command = new CategoryCommand(
             $form->name,
             $form->slug,
             $form->title,
             $form->parentId,
-            new Meta($form->meta->title, $form->meta->description),
+            new MetaCommand($form->meta->title, $form->meta->description),
             null,
             $form->description);
-        return $this->container()->get(CategoryManageServiceInterface::class)->create($dto);
+        return $this->container()->get(CategoryManageServiceInterface::class)->create($command);
     }
 
     public function editCategory(string $id, CategoryForm $form): void
     {
-        $dto = new CategoryDto(
+        $command = new CategoryCommand(
             $form->name,
             $form->slug,
             $form->title,
             $form->parentId,
-            new Meta($form->meta->title, $form->meta->description),
+            new MetaCommand($form->meta->title, $form->meta->description),
             $id,
             $form->description);
-        $this->container()->get(CategoryManageServiceInterface::class)->edit($dto);
+        $this->container()->get(CategoryManageServiceInterface::class)->edit($command);
     }
 
     public function removeCategory(string $id): void
@@ -125,29 +123,16 @@ class BlogManagementService extends AbstractContract implements BlogManagementCo
         $this->container()->get(CategoryManageServiceInterface::class)->remove($id);
     }
 
-    public function getDefinitionOf(string $className): string
-    {
-        $this->container();
-        $definitions = \Yii::$container->getDefinitions();
-
-        if (!\Yii::$container->has($className)) {
-            throw new RuntimeException('Class ' . $className . ' is not registered correctly.');
-        }
-
-        return $definitions[$className]['class'];
-    }
-
     public function createTagQuery(): ActiveQueryInterface
     {
-        $this->container();
-        $categoryQuery = DefinitionHelper::getDefinition(TagInterface::class);
-        return $categoryQuery::find();
+        $class = $this->container()->getDefinitionOf(TagInterface::class);
+        return $class::find();
     }
 
     public function editTag(string $id, TagForm $form): void
     {
-        $dto = new TagDto($form->name, $form->slug, $id);
-        $this->container()->get(TagManageServiceInterface::class)->edit($dto);
+        $command = new TagCommand($form->name, $form->slug, $id);
+        $this->container()->get(TagManageServiceInterface::class)->edit($command);
     }
 
     public function removeTag(string $id): void
@@ -209,4 +194,5 @@ class BlogManagementService extends AbstractContract implements BlogManagementCo
     {
         return $this->container()->get(CategoryReadRepositoryInterface::class)->find($id);
     }
+
 }

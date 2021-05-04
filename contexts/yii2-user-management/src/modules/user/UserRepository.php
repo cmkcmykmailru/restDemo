@@ -2,7 +2,6 @@
 
 namespace grigor\userManagement\modules\user;
 
-use grigor\library\helpers\DefinitionHelper;
 use grigor\library\repositories\strategies\DeleteStrategyInterface;
 use grigor\library\repositories\strategies\SaveStrategyInterface;
 use grigor\userManagement\modules\user\api\UserInterface;
@@ -49,8 +48,7 @@ class UserRepository implements UserRepositoryInterface
 
     protected function getQuery(): ActiveQueryInterface
     {
-        $postClass = DefinitionHelper::getDefinition(UserInterface::class);
-        return $postClass::find();
+        return User::find();
     }
 
     public function get(string $id): UserInterface

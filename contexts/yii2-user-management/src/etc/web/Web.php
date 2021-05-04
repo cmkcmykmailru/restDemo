@@ -3,6 +3,8 @@
 namespace grigor\userManagement\etc\web;
 
 use grigor\library\contexts\Config;
+use grigor\userManagement\modules\user\api\UserInterface;
+use grigor\userManagement\modules\user\User;
 use grigor\userManagement\services\SignUpService;
 use grigor\userManagement\services\UserManagementService;
 use grigor\userManagement\SignupContract;
@@ -14,6 +16,11 @@ class Web implements BootstrapInterface
 {
     public function bootstrap($app)
     {
+        Yii::$container->set(
+            UserInterface::class,
+            User::class
+        );
+
         Yii::$container->setSingleton(
             UserManagementContract::class,
             UserManagementService::class,

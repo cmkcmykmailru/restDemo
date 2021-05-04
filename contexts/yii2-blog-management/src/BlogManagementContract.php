@@ -8,11 +8,12 @@ use grigor\blog\module\post\api\PostInterface;
 use grigor\blogManagement\services\forms\CategoryForm;
 use grigor\blogManagement\services\forms\PostForm;
 use grigor\blogManagement\services\forms\TagForm;
+use grigor\library\contexts\ContractInterface;
 use yii\data\DataProviderInterface;
 use grigor\generator\annotation as API;
 use yii\db\ActiveQueryInterface;
 
-interface BlogManagementContract
+interface BlogManagementContract extends ContractInterface
 {
     /**
      * @API\Route(

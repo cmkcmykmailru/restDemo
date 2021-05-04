@@ -40,10 +40,6 @@
     {
       "type": "path",
       "url": "src/modules/yii2-signup"
-    },
-    {
-      "type": "path",
-      "url": "../yii2-access-management"
     }
   ]
 }

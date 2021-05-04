@@ -2,10 +2,11 @@
 
 namespace grigor\userManagement;
 
+use grigor\library\contexts\ContractInterface;
 use grigor\userManagement\modules\user\api\UserInterface;
 use grigor\userManagement\services\forms\LoginForm;
 
-interface UserManagementContract
+interface UserManagementContract extends ContractInterface
 {
     public function findActiveUserById(string $id): ?UserInterface;
 
