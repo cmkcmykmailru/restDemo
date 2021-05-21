@@ -1,6 +1,8 @@
 <?php
 
 use grigor\accessManagement\AccessManagementContract;
+use grigor\accessManagement\services\AccessManagementService;
+use grigor\library\contexts\Config;
 use grigor\library\repositories\strategies\DeleteStrategyInterface;
 use grigor\library\repositories\strategies\SaveStrategyInterface;
 use grigor\signup\api\SignupFactoryInterface;
@@ -12,6 +14,7 @@ use grigor\signup\SignupRepository;
 use grigor\signup\SignupUserFactory;
 use yii\di\Container;
 use yii\di\Instance;
+use yii\rbac\ManagerInterface;
 
 return [
     SignupUserFactory::class => function (Container $container) {
@@ -32,6 +35,13 @@ return [
         [
             Instance::of(SignupRepositoryInterface::class),
             Instance::of(AccessManagementContract::class)
+        ]
+    ],
+
+    AccessManagementContract::class => [
+        ['class' => AccessManagementService::class],
+        [
+            new Config(__DIR__)
         ]
     ],
     SignupManageServiceProxy::class => [

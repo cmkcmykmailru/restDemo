@@ -6,6 +6,9 @@ use yii\di\Instance;
 use yii\rbac\ManagerInterface;
 
 return [
+    ManagerInterface::class => function () {
+        return Yii::$app->authManager;
+    },
     RoleManager::class => [
         ['class' => RoleManager::class],
         [

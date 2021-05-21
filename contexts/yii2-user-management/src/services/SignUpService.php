@@ -12,18 +12,6 @@ use RuntimeException;
 class SignUpService extends AbstractContract implements SignupContract
 {
 
-    public function getDefinitionOf(string $className): string
-    {
-        $this->container();
-        $definitions = \Yii::$container->getDefinitions();
-
-        if (!\Yii::$container->has($className)) {
-            throw new RuntimeException('Class ' . $className . ' is not registered correctly.');
-        }
-
-        return $definitions[$className]['class'];
-    }
-
     public function request(SignupForm $form): void
     {
         $this->container()

@@ -18,7 +18,7 @@
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
-        "grigor/yii2-rest": "^1.0.1",
+        "grigor/yii2-rest": "^1.0.2",
         "grigor/yii2-project-library": "~0.0.1",
         "kartik-v/yii2-widget-fileinput": "@dev",
         "kartik-v/yii2-editable": "dev-master",

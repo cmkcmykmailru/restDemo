@@ -1,5 +1,7 @@
 <?php
 
+use grigor\rest\controllers\RestController;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -80,6 +82,26 @@ return [
         'serviceInstaller' => [
             'class' => \grigor\rest\urls\installer\ServiceInstaller::class,
             'whiteList' => false,
+
+            /**
+             * CORS settings
+             */
+          /*  'behaviors' => function (RestController $controller, array $behaviors) {
+                $auth = $behaviors['authenticator'];
+                unset($behaviors['authenticator']);
+                $behaviors['corsFilter'] = [
+                    'class' => \yii\filters\Cors::class,
+                    'cors' => [
+                        'Origin' => ['http://localhost:3000'],
+                        'Access-Control-Request-Method' => ['*'],
+                        'Access-Control-Request-Headers' => ['*'],
+                        'Access-Control-Allow-Credentials' => true,
+                    ],
+                ];
+                $behaviors['authenticator'] = $auth;
+                $behaviors['authenticator']['except'] = ['options'];
+                return $behaviors;
+            }*/
         ],
         'serviceMetaDataReader' => [
             'class' => \grigor\rest\urls\installer\PhpServiceMetaDataReader::class,
@@ -99,7 +121,7 @@ return [
     ],
     'as authenticator' => [
         'class' => 'filsh\yii2\oauth2server\filters\auth\CompositeAuth',
-        'except' => ['site/index','post/all' ,'oauth2/rest/token'],
+        'except' => ['site/index', 'post/all', 'oauth2/rest/token'],
         'authMethods' => [
             ['class' => 'yii\filters\auth\HttpBearerAuth'],
             ['class' => 'yii\filters\auth\QueryParamAuth', 'tokenParam' => 'accessToken'],
@@ -107,7 +129,7 @@ return [
     ],
     'as access' => [
         'class' => 'yii\filters\AccessControl',
-        'except' => ['site/index','post/all' , 'oauth2/rest/token'],
+        'except' => ['site/index', 'post/all', 'oauth2/rest/token'],
         'rules' => [
             [
                 'allow' => true,
